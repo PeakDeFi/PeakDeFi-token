@@ -1,53 +1,53 @@
 {
-    "name": "peak-defi-token",
-    "version": "1.0.0",
-    "description": "PeakDeFi token smart contracts",
-    "main": "index.js",
-    "directories": {
-      "test": "test"
-    },
-    "scripts": {
-      "test": "truffle test",
-      "compile": "truffle compile",
-      "migrate": "truffle migrate",
-      "ganache": "ganache-cli --gas-price 0",
-      "deploy:dev": "truffle deploy --network development --reset",
-      "deploy:mainnet": "truffle deploy --network mainnet --reset",
-      "deploy:ropsten": "truffle deploy --network ropsten --reset",
-      "flat": "truffle-flattener contracts/PeakDeFi.sol > flat/PeakDeFi.sol"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/PeakDeFi/PeakDeFi-token.git"
-    },
-    "keywords": [
-      "peak",
-      "defi",
-      "smart",
-      "contracts",
-      "ethereum",
-      "solidity",
-      "transactions",
-      "erc20",
-      "ethereum",
-      "tokens",
-      "contract"
-    ],
-    "author": "Ararat Tonoyan",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/PeakDeFi/PeakDeFi-token/issues"
-    },
-    "homepage": "https://github.com/PeakDeFi/PeakDeFi-token#readme",
-    "dependencies": {
-      "@openzeppelin/contracts": "^3.1.0",
-      "@openzeppelin/test-environment": "^0.1.4",
-      "@openzeppelin/test-helpers": "^0.5.6",
-      "@truffle/hdwallet-provider": "^1.0.43",
-      "chai": "^4.2.0",
-      "dotenv": "^8.2.0",
-      "ganache-cli": "^6.10.1",
-      "truffle": "^5.1.40",
-      "truffle-flattener": "^1.4.4"
-    }
+  "name": "peak-defi-token",
+  "version": "1.0.0",
+  "description": "PeakDeFi token smart contracts",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate",
+    "ganache": "ganache-cli --gas-price 0",
+    "deploy:dev": "truffle deploy --network development --reset",
+    "deploy:mainnet": "truffle deploy --network mainnet --reset",
+    "deploy:ropsten": "truffle deploy --network ropsten --reset",
+    "flat": "truffle-flattener contracts/PeakToken.sol > flat/PeakToken.sol && truffle-flattener contracts/TokenProxy.sol > flat/TokenProxy.sol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeakDeFi/PeakDeFi-token.git"
+  },
+  "keywords": [
+    "peak",
+    "defi",
+    "smart",
+    "contracts",
+    "ethereum",
+    "solidity",
+    "transactions",
+    "erc20",
+    "ethereum",
+    "tokens",
+    "contract"
+  ],
+  "author": "Ararat Tonoyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeakDeFi/PeakDeFi-token/issues"
+  },
+  "homepage": "https://github.com/PeakDeFi/PeakDeFi-token#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.1.0",
+    "@openzeppelin/test-environment": "^0.1.4",
+    "@openzeppelin/test-helpers": "^0.5.6",
+    "@truffle/hdwallet-provider": "^1.0.43",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "ganache-cli": "^6.10.1",
+    "truffle": "^5.1.40",
+    "truffle-flattener": "^1.4.4"
+  }
 }
