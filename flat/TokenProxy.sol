@@ -1,8 +1,4 @@
-// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
+pragma solidity ^0.6.2;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
@@ -77,12 +73,6 @@ interface IERC20 {
      */
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
-
-// File: @openzeppelin/contracts/math/SafeMath.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -239,12 +229,6 @@ library SafeMath {
         return a % b;
     }
 }
-
-// File: @openzeppelin/contracts/utils/EnumerableSet.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
 
 /**
  * @dev Library for managing
@@ -486,12 +470,6 @@ library EnumerableSet {
     }
 }
 
-// File: @openzeppelin/contracts/utils/Address.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.2;
-
 /**
  * @dev Collection of functions related to the address type
  */
@@ -630,12 +608,6 @@ library Address {
     }
 }
 
-// File: @openzeppelin/contracts/GSN/Context.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
 /*
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -656,15 +628,6 @@ abstract contract Context {
         return msg.data;
     }
 }
-
-// File: @openzeppelin/contracts/access/AccessControl.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
-
-
 
 /**
  * @dev Contract module that allows children to implement role-based access
@@ -875,14 +838,6 @@ abstract contract AccessControl is Context {
         }
     }
 }
-
-// File: contracts/ERC20.sol
-
-pragma solidity ^0.6.2;
-
-
-
-
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -1168,12 +1123,6 @@ contract ERC20 is AccessControl, IERC20 {
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
 }
 
-// File: @openzeppelin/contracts/proxy/Proxy.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
 /**
  * @dev This abstract contract provides a fallback function that delegates all calls to another contract using the EVM
  * instruction `delegatecall`. We refer to the second contract as the _implementation_ behind the proxy, and it has to
@@ -1254,14 +1203,6 @@ abstract contract Proxy {
     }
 }
 
-// File: @openzeppelin/contracts/proxy/UpgradeableProxy.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
-
-
 /**
  * @dev This contract implements an upgradeable proxy. It is upgradeable because calls are delegated to an
  * implementation address that can be changed. This address is stored in storage in the location specified by
@@ -1335,13 +1276,6 @@ contract UpgradeableProxy is Proxy {
         }
     }
 }
-
-// File: @openzeppelin/contracts/proxy/TransparentUpgradeableProxy.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
 
 /**
  * @dev This contract implements a proxy that is upgradeable by an admin.
@@ -1490,13 +1424,6 @@ contract TransparentUpgradeableProxy is UpgradeableProxy {
         super._beforeFallback();
     }
 }
-
-// File: contracts/TokenProxy.sol
-
-pragma solidity ^0.6.2;
-
-
-
 
 contract TokenProxy is TransparentUpgradeableProxy, ERC20 {
 	/**

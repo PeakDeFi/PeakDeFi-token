@@ -1,9 +1,4 @@
-// File: @openzeppelin/contracts/proxy/Initializable.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity >=0.4.24 <0.7.0;
-
+pragma solidity ^0.6.2;
 
 /**
  * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed
@@ -62,12 +57,6 @@ abstract contract Initializable {
         return cs == 0;
     }
 }
-
-// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
@@ -142,12 +131,6 @@ interface IERC20 {
      */
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
-
-// File: @openzeppelin/contracts/math/SafeMath.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -304,12 +287,6 @@ library SafeMath {
         return a % b;
     }
 }
-
-// File: @openzeppelin/contracts/utils/EnumerableSet.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
 
 /**
  * @dev Library for managing
@@ -551,12 +528,6 @@ library EnumerableSet {
     }
 }
 
-// File: @openzeppelin/contracts/utils/Address.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.2;
-
 /**
  * @dev Collection of functions related to the address type
  */
@@ -695,12 +666,6 @@ library Address {
     }
 }
 
-// File: @openzeppelin/contracts/GSN/Context.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
 /*
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -721,15 +686,6 @@ abstract contract Context {
         return msg.data;
     }
 }
-
-// File: @openzeppelin/contracts/access/AccessControl.sol
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.0;
-
-
-
 
 /**
  * @dev Contract module that allows children to implement role-based access
@@ -940,14 +896,6 @@ abstract contract AccessControl is Context {
         }
     }
 }
-
-// File: contracts/ERC20.sol
-
-pragma solidity ^0.6.2;
-
-
-
-
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -1232,12 +1180,6 @@ contract ERC20 is AccessControl, IERC20 {
      */
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
 }
-
-// File: contracts/PeakToken.sol
-
-pragma solidity ^0.6.2;
-
-
 
 
 contract PeakDeFiV1 is ERC20, Initializable {
