@@ -10,11 +10,11 @@
     "test": "truffle test",
     "compile": "truffle compile",
     "migrate": "truffle migrate",
-    "ganache": "ganache-cli --gas-price 0",
     "deploy:dev": "truffle deploy --network development --reset",
     "deploy:mainnet": "truffle deploy --network mainnet --reset",
     "deploy:ropsten": "truffle deploy --network ropsten --reset",
-    "flat": "truffle-flattener contracts/PeakToken.sol > flat/PeakToken.sol && truffle-flattener contracts/TokenProxy.sol > flat/TokenProxy.sol"
+    "ganache": "ganache-cli --gas-price 0 -a 30 --unlock --mnemonic genre dress knee lounge expose flash cute valid hard define box outdoor",
+    "flat": "truffle-flattener contracts/PeakDeFiV1.sol > flat/PeakDeFiV1.sol && truffle-flattener contracts/TokenProxy.sol > flat/TokenProxy.sol"
   },
   "repository": {
     "type": "git",
