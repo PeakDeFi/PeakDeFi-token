@@ -15,10 +15,12 @@ contract PeakDeFiV1 is ERC20, Initializable {
         _setupRole(MINTER_ROLE, minter);
     }
 
-    function mint(address recipient, uint256 amount) public {
+    function mint(address recipient, uint256 amount) public returns (bool) {
         require(hasRole(MINTER_ROLE, _msgSender()), "mint: unauthorized call!");
 
         _mint(recipient, amount);
+
+        return true;
     }
 
     function burn(uint256 amount) public {
