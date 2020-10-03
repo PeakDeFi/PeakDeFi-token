@@ -10,45 +10,54 @@ var token_abi = [{"anonymous":false,"inputs":[{"indexed":true,"internalType":"ad
 var accounts, OLD_PEAK_CONTRACT, SWAP_CONTRACT;
 
 async function metamaskIntegration() {
-    if (window.File && window.FileReader && window.FileList && window.Blob) {} else {
-        alert("The File APIs are not fully supported in this browser.");
-    }
-
-    //Modern dapp browsers...
-    if (window.ethereum) {
-        window.web3 = new Web3(window.ethereum);
-        try {
-            //Request account access
-            //if needed
-            metaMask = false;
-            ethereum.enable().then(metaMask = true);
-        } catch (error) {
-            metaMask = false;
-            alert('Connect to metamask');
-            //User denied account access...
+    try {
+        if (window.File && window.FileReader && window.FileList && window.Blob) {} else {
+            throw 'The File APIs are not fully supported in this browser!';
         }
-    }
-    //Legacy dapp browsers...
-    else if (window.web3) {
-        metaMask = true;
-        window.web3 = new Web3(web3.currentProvider);
-    }
-    //Non - dapp browsers...
-    else {
-        metaMask = false;
-        alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
-    }
 
-    if (metaMask) {
-        $('#account').removeClass('d-none');
-    }
+        //Modern dapp browsers...
+        if (window.ethereum) {
+            window.web3 = new Web3(window.ethereum);
+            try {
+                //Request account access
+                //if needed
+                metaMask = false;
+                await window.ethereum.enable()
+                metaMask = true;
+            } catch (error) {
+                metaMask = false;
+                //User denied account access...
+                throw 'Please allow Metamask permission to use this dapp!';
+            }
+        }
 
-    await web3.eth.getAccounts(function(error, result) {
-        if (!error) {
-            accounts = result;
-        } else
-            console.error(error);
-    });
+        //Legacy dapp browsers...
+        else if (window.web3) {
+            metaMask = true;
+            window.web3 = new Web3(web3.currentProvider);
+        }
+
+        //Non - dapp browsers...
+        else {
+            metaMask = false;
+            throw 'Non-Ethereum browser detected. You should consider trying MetaMask!';
+        }
+
+        return new Promise((resolve, reject) => {
+            web3.eth.getAccounts((error, result) => {
+                if (!error) {
+                    accounts = result;
+                    console.log('accounts', accounts)
+                    resolve();
+                } else {
+                    console.error('error', error);
+                    reject();
+                }
+            })
+        })
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function contractInitialization(contractAddress, contractABI) {
@@ -71,10 +80,9 @@ function convert(n) {
 }
 
 $(function() {
-
     metamaskIntegration().then(x => {
-
         $('#account').html(accounts[0].substring(0, 6) + '...' + accounts[0].substring(36, 41));
+        $('#account').removeClass('d-none');
 
         contractInitialization(oldPeakToken, token_abi).then(oldPeak => {
             OLD_PEAK_CONTRACT = oldPeak;
@@ -83,15 +91,14 @@ $(function() {
         contractInitialization(swapContract, contract_abi).then(c => {
             SWAP_CONTRACT = c;
         });
-
-    });
+    }).catch(error => alert(error));
 
 
     $('#connectWallet').click(function(e) {
         e.preventDefault();
         metamaskIntegration().then(x => {
             $('#account').html(accounts[0].substring(0, 6) + '...' + accounts[0].substring(36, 41));
-        });
+        }).catch(error => alert(error));
     });
 
     $('#token_amount_all').click(async function(e) {
