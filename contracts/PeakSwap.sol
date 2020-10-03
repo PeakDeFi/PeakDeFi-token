@@ -27,22 +27,21 @@ contract PeakTokenSwap {
 		toERC20 = IPeakDeFi(_toERC20);
 	}
 
-	function swap() external {
-		// Send and lock the old tokens to this contract
-		uint256 balance = fromERC20.balanceOf(msg.sender);
-        uint256 availableAllowance = toERC20.allowance(wallet, address(this));
-
+	function swap(uint256 swapAmount) external {
         // Validate balances and allowances before transfer
-		require(balance > 0, "swap: No tokens to transfer!");
-		require(availableAllowance >= balance, "swap: Not enough new tokens to transfer!");
+		require(swapAmount > 0, "swap: No tokens to transfer!");
+
+		// Send and lock the old tokens to this contract
+        uint256 availableAllowance = toERC20.allowance(wallet, address(this));
+		require(availableAllowance >= swapAmount, "swap: Not enough new tokens to transfer!");
 
         // Receive and burn old tokens
-		require(fromERC20.transferFrom(msg.sender, address(this), balance));
-		fromERC20.burn(balance);
+		require(fromERC20.transferFrom(msg.sender, address(this), swapAmount));
+		fromERC20.burn(swapAmount);
 
         // Transfer new tokens to sender
-		require(toERC20.transferFrom(wallet, msg.sender, balance));
+		require(toERC20.transferFrom(wallet, msg.sender, swapAmount));
 
-		emit TokenSwap(msg.sender, address(fromERC20), address(toERC20), balance);
+		emit TokenSwap(msg.sender, address(fromERC20), address(toERC20), swapAmount);
 	}
 }
