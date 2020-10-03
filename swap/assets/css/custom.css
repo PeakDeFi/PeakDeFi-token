@@ -1,0 +1,44 @@
+/* PLACE YOUR CUSTOM STYLES IN THIS FILE */
+
+body {
+    background-color: #2c3135;
+    background-image: radial-gradient(50% 50% at 50% 50%, rgba(33, 114, 229, 0.1) 0%, rgba(33, 36, 41, 0) 100%);
+}
+
+.rui-navbar {
+    background-color: transparent;
+}
+
+.rui-widget {
+    border: none;
+    border-radius: 15px !important;
+    background: rgb(33, 36, 41);
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 4px 8px, rgba(0, 0, 0, 0.04) 0px 16px 24px, rgba(0, 0, 0, 0.01) 0px 24px 32px;
+}
+
+.input-group-append {
+    position: relative;
+}
+
+.input-group-append .input-group-text.btn-token {
+    position: absolute;
+    right: 1.5rem;
+    line-height: 1rem;
+    min-height: auto;
+    padding: 1rem;
+    border-radius: 10px  !important;
+    background-color: #176e9b;
+    color: white;
+    border: none;
+    z-index: 1000;
+}
+
+.rui-navbar-logo img {
+    object-fit: contain;
+}
+
+input.form-control {
+    border-radius: 15px !important;
+    background-color: #ffffff !important;
+    border-color: #5e646c !important;
+}

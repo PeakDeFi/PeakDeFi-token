@@ -157,11 +157,8 @@ dist
 *.asp
 *.cer
 *.csr
-*.css
 *.htm
-*.html
 *.jsp
-*.php
 *.rss
 *.wasm
 *.wat

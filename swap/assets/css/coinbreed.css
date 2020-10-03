@@ -1,0 +1,231 @@
+.coinbreed_tooltip_cus {
+	transform: translate(-5px, -10px);
+}
+
+.h1_small {
+	font-size: 1.5em;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+
+.h171 {
+	height: 171px;
+}
+
+.tly-10 {
+	transform: translateY(-10px);
+}
+
+.mh203 {
+	min-height: 203px;
+}
+
+.bbw_1 {
+	border-bottom-width: 1px !important;
+}
+
+.custom_gap {
+	height: 45px;
+}
+
+.custom_inline, .custom_inline_w_title {
+	display: flex;
+	align-items: center;
+}
+
+.custom_inline_right {
+	margin-left: 10px;
+}
+
+.btn_custom_width {
+    min-width: 175px !important;
+    border-radius: 15px;
+}
+
+.center_text {
+	margin-right: auto !important;
+	margin-left: auto !important;
+	display: inline-block;
+}
+
+.input_with_button {
+	max-width: 70%;
+	width: 100%;
+}
+
+*[data-imagesrc] {
+	width: 20px;
+}
+
+.dd-select {
+	min-height: 36px;
+    padding: 7px 17px;
+}
+
+.farming_rate_custom_w {
+	width: 200px;
+}
+
+.btn_with_title {
+	margin-left: auto;
+}
+
+.nav_list_custom {
+	margin: 10px 0;
+}
+
+.mh133 {
+	min-height: 133px;
+}
+
+.progress_tooltip {
+	padding: 5px;
+	border-radius: 2px;
+	max-width: 200px;
+}
+
+.c_pointer {
+	cursor: pointer;
+}
+
+.m0 {
+	margin: 0;
+}
+
+.bb_1 {
+	border-bottom: 1px solid rgba(0,0,0,.1)
+}
+
+.c_divider {
+	border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.fp_accordion {
+	cursor: pointer;
+	position: relative;
+	padding-left: 30px !important;
+}
+
+.fp_accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 9px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  outline: none;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.fp_panel {
+	display: none;
+  	overflow: hidden;
+  	max-height: 0;
+  	transition: all 0.3s ease-in-out;
+}
+
+.chart_width_p {
+	min-height: 200px;
+}
+
+.chart_width_p1 {
+	min-height: 280px;
+}
+
+.barChart_width_p {
+	min-height: 220px;
+	max-width: 100%;
+}
+
+.btn-token {
+	padding: 18px 20px;
+}
+
+.fz_9 {
+	font-size: 1em;
+}
+
+.mx_auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.token_alert_p {
+	display: none;
+	padding: 10px;
+}
+
+.token_alert {
+	border-radius: 15px;
+	padding: 5px;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 0.9em;
+}
+
+@media screen and (max-width: 768px) {
+	.farming_rate_custom_w {
+		width: 300px;
+	}
+
+
+}
+
+@media screen and (max-width: 576px) {
+	.drop_this_at_mobile {
+		display: none;
+	}
+
+	.modal_body_mobile {
+		padding: 15px;
+	}
+
+	.barChart_width_p {
+		min-height: 200px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.input_with_button {
+		max-width: 55%;
+		width: 100%;
+	}
+
+	.farming_rate_custom_w {
+		width: 200px;
+	}
+
+	.custom_inline_w_title {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.btn_with_title {
+		margin-left: 0;
+		margin-top: 20px;
+	}
+
+	.mt_10_mobile {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.chart_width_p1 {
+		min-height: 245px;
+	}
+
+	.rui-widget .rui-widget-task-list > li {
+		padding: 20px 10px;
+	}
+
+	.fp_accordion {
+		padding-left: 20px !important;
+	}
+}

@@ -1,0 +1,571 @@
+/*!
+ * Name: RootUI - Dashboards and Administration areas for React + Redux and HTML
+ * Version: 1.1.4
+ * Author: dexad, nK
+ * Website: https://nkdev.info/
+ * Purchase: https://themeforest.net/user/_nk/portfolio
+ * Support: https://nk.ticksy.com/
+ * License: You must have a valid license purchased only from ThemeForest (the above link) in order to legally use the theme for your project.
+ * Copyright 2020.
+ */
+body {
+    position: relative;
+}
+
+.yay-html-overflow,
+.yay-html-overflow body {
+    overflow-x: hidden;
+}
+
+.yay-icon,
+.yay-icon-collapse {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+}
+
+.yay-icon svg,
+.yay-icon-collapse svg {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+}
+
+/**
+ * Base
+ */
+.yaybar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 260px;
+    overflow: auto;
+    font-size: 13px;
+    background-color: #f8f9fa;
+    -webkit-transition: width 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    transition: width 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    -o-transition: transform 250ms ease-in-out, width 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, width 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, width 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    will-change: transform, width;
+    z-index: 100;
+}
+
+.yaybar.yay-static {
+    position: absolute;
+}
+
+.yaybar ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.yaybar .yay-icon {
+    margin-right: 10px;
+}
+
+.yaybar .yaybar-wrap > ul {
+    width: 260px;
+    -webkit-transition: width 250ms ease-in-out;
+    -o-transition: width 250ms ease-in-out;
+    transition: width 250ms ease-in-out;
+    will-change: width;
+    /* Submenu levels */
+}
+
+.yaybar .yaybar-wrap > ul li.yay-label {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #979797;
+    opacity: .5;
+}
+
+.yaybar .yaybar-wrap > ul li.yay-content {
+    padding: 10px;
+    color: #979797;
+}
+
+.yaybar .yaybar-wrap > ul li.yay-content .progress {
+    margin-top: .7em;
+}
+
+.yaybar .yaybar-wrap > ul li > .yay-submenu {
+    display: none;
+    -webkit-transition: .3s background-color;
+    -o-transition: .3s background-color;
+    transition: .3s background-color;
+    will-change: background-color;
+}
+
+.yaybar .yaybar-wrap > ul li.yay-submenu-open > .yay-submenu {
+    display: block;
+}
+
+.yaybar .yaybar-wrap > ul li > a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 12px 17px;
+    line-height: 20px;
+    color: #979797;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border-bottom: none;
+    -webkit-transition: background-color .3s, font-size 0s, .3s color;
+    -o-transition: background-color .3s, font-size 0s, .3s color;
+    transition: background-color .3s, font-size 0s, .3s color;
+    will-change: background-color, font-size, color;
+}
+
+.yaybar .yaybar-wrap > ul li > a > .yay-icon-collapse {
+    margin-left: auto;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: -webkit-transform .3s ease;
+    -o-transition: transform .3s ease;
+    transition: transform .3s ease;
+    transition: transform .3s ease, -webkit-transform .3s ease;
+    will-change: transform;
+}
+
+.yaybar .yaybar-wrap > ul li > a > .badge {
+    margin-left: auto;
+}
+
+.yaybar .yaybar-wrap > ul li.yay-label, .yaybar .yaybar-wrap > ul li.yay-content {
+    padding: 12px 17px;
+}
+
+.yaybar .yaybar-wrap > ul li:hover > a {
+    color: #1a1a1a;
+}
+
+.yaybar .yaybar-wrap > ul li.yay-item-active > a,
+.yaybar .yaybar-wrap > ul li.yay-submenu-open > a {
+    color: #1a1a1a;
+}
+
+.yaybar .yaybar-wrap > ul li.yay-submenu-open > a > .yay-icon-collapse {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+
+.yaybar .yaybar-wrap > ul li .yay-submenu li a {
+    color: #979797;
+}
+
+.yaybar .yaybar-wrap > ul li .yay-submenu li:hover > a {
+    color: #1a1a1a;
+}
+
+.yaybar .yaybar-wrap > ul li .yay-submenu li.yay-submenu-open > a,
+.yaybar .yaybar-wrap > ul li .yay-submenu li.yay-item-active > a {
+    color: #1a1a1a;
+}
+
+.yaybar .yaybar-wrap > ul > li.yay-item-active > a,
+.yaybar .yaybar-wrap > ul > li.yay-submenu-open > a,
+.yaybar .yaybar-wrap > ul > li.yay-submenu-open > .yay-submenu {
+    background-color: #fff;
+}
+
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li > a {
+    padding-right: 17px;
+    padding-left: 44.2px;
+}
+
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li.yay-item-active > a,
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li.yay-submenu-open > a,
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li.yay-submenu-open > .yay-submenu {
+    background-color: #fff;
+}
+
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 17px;
+    padding-left: 66.3px;
+}
+
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li.yay-item-active > a,
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li.yay-submenu-open > a,
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li.yay-submenu-open > .yay-submenu {
+    background-color: #fff;
+}
+
+.yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 17px;
+    padding-left: 88.4px;
+}
+
+/**
+ * Small Bar
+ */
+.yay-hide .yaybar {
+    -webkit-transform: translateX(-260px);
+        -ms-transform: translateX(-260px);
+            transform: translateX(-260px);
+}
+
+/* Hide to Small bar */
+.yay-hide .yaybar.yay-hide-to-small {
+    position: absolute;
+    width: 60px;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+}
+
+.yay-hide .yaybar.yay-hide-to-small:not(.os-host) {
+    overflow: visible;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul {
+    width: 60px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul .yay-label,
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul .yay-content {
+    display: none;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > a {
+    padding: 0;
+    padding: 12px 0;
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > a > .yay-icon {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    margin-right: 0;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > a > .yay-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > a > .yay-icon-collapse {
+    display: none;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > a > .badge {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    font-size: 9.75px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li {
+    position: relative;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 260px;
+    visibility: hidden;
+    background-color: #fff;
+    /* Fix submenu levels paddings */
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > a {
+    padding: 12px 17px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-left: 44.2px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-left: 66.3px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-left: 88.4px;
+}
+
+.yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li:hover > .yay-submenu {
+    display: block !important;
+    visibility: visible;
+}
+
+.yay-hide .yaybar.yay-hide-to-small ~ .content-wrap {
+    margin-left: 60px;
+}
+
+.yaybar.yay-overlay.yay-hide-to-small ~ .content-wrap {
+    margin-left: 60px;
+}
+
+.yay-hide .yay-hide-to-small .yaybar-wrap {
+    width: auto;
+}
+
+.yay-hide-to-small .yaybar-wrap {
+    width: 260px;
+}
+
+/**
+ * Effects
+ */
+/* Push */
+.yaybar.yay-push ~ .content-wrap {
+    -webkit-transition: margin-left 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    transition: margin-left 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    -o-transition: transform 250ms ease-in-out, margin-left 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, margin-left 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, margin-left 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    will-change: transform, margin-left;
+    -webkit-transform: translateX(260px);
+        -ms-transform: translateX(260px);
+            transform: translateX(260px);
+}
+
+.yay-hide .yaybar.yay-push ~ .content-wrap {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+}
+
+/* Shrink */
+.yaybar.yay-shrink ~ .content-wrap {
+    margin-left: 260px;
+    -webkit-transition: margin-left 250ms ease-in-out;
+    -o-transition: margin-left 250ms ease-in-out;
+    transition: margin-left 250ms ease-in-out;
+    will-change: margin-left;
+}
+
+.yay-hide .yaybar.yay-shrink ~ .content-wrap {
+    margin-left: 0;
+}
+
+.yay-hide .yaybar.yay-shrink.yay-hide-to-small ~ .content-wrap {
+    margin-left: 60px;
+}
+
+/**
+ * Content overlay.
+ */
+.yaybar.yay-content-overlay ~ .content-wrap::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    visibility: visible;
+    background-color: rgba(40, 40, 45, 0.8);
+    opacity: 1;
+    -webkit-transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+    -o-transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+    transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+    will-change: opacity, visibility;
+    z-index: 10;
+}
+
+.yay-hide .yaybar.yay-content-overlay ~ .content-wrap::after {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/**
+ * OverlayScrollbars
+ */
+.yaybar:not(.os-host) {
+    overflow: hidden;
+}
+
+.yaybar .os-scrollbar {
+    background-color: #f8f9fa;
+}
+
+.yaybar .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle,
+.yaybar .os-scrollbar:hover > .os-scrollbar-track > .os-scrollbar-handle {
+    background-color: #2377ba;
+}
+
+.yaybar .os-scrollbar > .os-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.yaybar .os-scrollbar.os-scrollbar-vertical {
+    width: 7px;
+}
+
+.yaybar .os-scrollbar.os-scrollbar-horizontal {
+    height: 7px;
+}
+
+/*
+ * Right side
+ */
+.yaybar.yay-right-side {
+    right: 0;
+    left: auto;
+    /* Show with Push content */
+    /* Show with Shrink content */
+}
+
+.yay-hide .yaybar.yay-right-side {
+    -webkit-transform: translateX(260px);
+        -ms-transform: translateX(260px);
+            transform: translateX(260px);
+}
+
+.yay-hide .yaybar.yay-right-side.yay-hide-to-small {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+}
+
+.yay-hide .yaybar.yay-right-side.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu {
+    right: 100%;
+    left: auto;
+}
+
+.yaybar.yay-right-side.yay-overlay ~ .content-wrap {
+    margin-right: 0;
+}
+
+.yay-hide .yaybar.yay-right-side.yay-hide-to-small ~ .content-wrap,
+.yaybar.yay-right-side.yay-overlay.yay-hide-to-small ~ .content-wrap {
+    -webkit-transform: translateX(60px);
+        -ms-transform: translateX(60px);
+            transform: translateX(60px);
+}
+
+.yaybar.yay-right-side.yay-push ~ .content-wrap {
+    margin-left: 0;
+    -webkit-transition: margin-right 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    transition: margin-right 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    -o-transition: transform 250ms ease-in-out, margin-right 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, margin-right 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, margin-right 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    -webkit-transform: translateX(-260px);
+        -ms-transform: translateX(-260px);
+            transform: translateX(-260px);
+    will-change: transform, margin-right;
+}
+
+.yay-hide .yaybar.yay-right-side.yay-push ~ .content-wrap {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+}
+
+.yaybar.yay-right-side.yay-shrink ~ .content-wrap {
+    margin-right: 260px;
+    margin-left: 0;
+    -webkit-transition: margin-right 250ms ease-in-out;
+    -o-transition: margin-right 250ms ease-in-out;
+    transition: margin-right 250ms ease-in-out;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    will-change: margin-right;
+}
+
+.yay-hide .yaybar.yay-right-side.yay-shrink ~ .content-wrap {
+    margin-right: 0;
+    margin-left: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+}
+
+.yay-hide .yaybar.yay-right-side.yay-shrink.yay-hide-to-small ~ .content-wrap {
+    margin-right: 60px;
+}
+
+/*
+ * RTL
+ */
+html.yay-rtl {
+    direction: rtl;
+}
+
+html.yay-rtl .yaybar .yay-icon {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+html.yay-rtl .yaybar .yaybar-wrap > ul li > a > .yay-icon-collapse,
+html.yay-rtl .yaybar .yaybar-wrap > ul li > a > .badge {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+html.yay-rtl .yaybar .yaybar-wrap > ul {
+    /* Submenu levels */
+}
+
+html.yay-rtl .yaybar .yaybar-wrap > ul > li > .yay-submenu > li > a {
+    padding-right: 44.2px;
+    padding-left: 17px;
+}
+
+html.yay-rtl .yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 66.3px;
+    padding-left: 17px;
+}
+
+html.yay-rtl .yaybar .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 88.4px;
+    padding-left: 17px;
+}
+
+html.yay-rtl .yaybar .yay-label {
+    text-align: right;
+}
+
+html.yay-rtl .yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > a > .yay-icon {
+    margin-left: 0;
+}
+
+html.yay-rtl .yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu {
+    /* Fix submenu levels paddings */
+}
+
+html.yay-rtl .yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > a {
+    padding: 12px 17px;
+}
+
+html.yay-rtl .yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 44.2px;
+    padding-left: 17px;
+}
+
+html.yay-rtl .yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 66.3px;
+    padding-left: 17px;
+}
+
+html.yay-rtl .yay-hide .yaybar.yay-hide-to-small .yaybar-wrap > ul > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > .yay-submenu > li > a {
+    padding-right: 88.4px;
+    padding-left: 17px;
+}
+

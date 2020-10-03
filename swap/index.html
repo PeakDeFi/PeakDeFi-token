@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Token Swap | PeakDeFi</title>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400%7cOpen+Sans:300,400,600%7cPT+Serif:400i">
+    <link rel="stylesheet" href="./assets/css/bootstrap-custom.css">
+    <link rel="stylesheet" href="./assets/css/rootui.css">
+    <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/coinbreed.css">
+  </head>
+  <body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140" class="rui-no-transition rui-navbar-autohide">
+    <div class="rui-page-preloader" role="status">
+      <div class="rui-page-preloader-inner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <nav class="rui-navbar rui-navbar-top">
+      <div class="rui-navbar-brand">
+        <div class="rui-navbar-logo">
+        <img src="./assets/images/logo.png" data-src-night="./assets/images/logo.png" data-src-day="./assets/images/logo.png" alt="" width="70">
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="rui-navbar-content">
+          <ul class="nav">
+          </ul>
+          <ul class="nav rui-navbar-right">
+            <!-- -------------------- Connect button & Wallet ------------------------- -->
+            <li class="dropdown" style="padding: 0">
+              <a href="#">
+              <button type="button" class="btn btn-brand" id="connectWallet">Connect Wallet</button>
+              </a>
+            </li>
+            <li class="dropdown ">
+              <a href="#">
+              <button type="button" class="btn btn-outline-primary disabled d-none" id="account"></button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ------------------------------------------ Mobile Menu ------------------------------------------ -->
+    <div class="rui-navbar rui-navbar-mobile">
+      <div class="rui-navbar-head">
+        <a class="rui-navbar-logo mr-auto" href="dashboard.html">
+        <img src="./assets/images/logo.png" data-src-night="./assets/images/logo-white.png" data-src-day="./assets/images/logo.png" alt="" width="100" height="70">
+        </a>
+        <div class="dropdown dropdown-triangle coibreed_custom_nav">
+          <!-- -------------------- Connect button & Wallet ------------------------- -->
+          <li class="dropdown" style="padding-right: 10px">
+            <a href="#">
+            <button type="button" class="btn btn-brand" id="connectWallet">Connect Wallet</button>
+            </a>
+          </li>
+          <li class="dropdown ">
+            <a href="#" class="drop_this_at_mobile">
+            <button type="button" class="btn btn-outline-primary disabled d-none" id="account"></button>
+            </a>
+          </li>
+        </div>
+        <button class="navbar-toggler rui-navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation"><span></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse rui-navbar-collapse" id="navbarMobile">
+        <div class="rui-navbar-content">
+          <ul class="nav">
+            <li class="dropdown dropdown-keep-open">
+              <a class="dropdown-item" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-feather="more-vertical" class="rui-icon rui-icon-stroke-1_5"></span> <span>Switch mode</span> <span class="rui-dropdown-circle"></span></a>
+              <ul class="nav dropdown-menu">
+                <li>
+                  <div class="custom-control custom-switch dropdown-item-switch">
+                    <input type="checkbox" class="custom-control-input rui-nightmode-toggle" id="toggleMobileNightMode">
+                    <label class="dropdown-item custom-control-label" for="toggleMobileNightMode"><span data-feather="moon" class="rui-icon rui-icon-stroke-1_5"></span>  <span>Night Mode</span>  <span class="rui-dropdown-circle"></span>
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="rui-navbar-bg"></div>
+    <!-- -------------------------------- Main Content ------------------------------------ -->
+    <div class="rui-page content-wrap">
+      <div class="rui-page-content">
+        <div class="row vertical-gap justify-content-center">
+          <!-- ---------- Module ---------- -->
+          <div class="col-lg-4 col-md-12">
+            <div class="rui-widget rui-widget-actions bw_1">
+              <div class="rui-widget-content py-10 row justify-content-center">
+                <div class="col-lg-12 col-md-12 mx_auto text-white px-10 pb-10 token_alert_p">
+                  <p class=" bg-danger token_alert">
+                    You are swapping
+                    <strong class="token_alert_amt">x</strong>
+                    <strong>old PEAK</strong> into
+                    <strong class="token_alert_amt">x</strong> <strong>PEAK</strong>. Please approve the swap contract to spend your
+                    <strong class="token_alert_amt">x</strong> <strong>old PEAK</strong> before clicking on the swap button.
+                  </p>
+                </div>
+                <div class="col-lg-12 col-md-12 mx_auto">
+                  <label for="amount" class="fz_9">Input (Old PEAK)</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control py-30" id="token_amount" placeholder="0.0">
+                    <div class="input-group-append">
+                      <button class="btn input-group-text btn-token" id="token_amount_all">All</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 mx_auto mt-30">
+                  <label for="amount" class="fz_9">Output (New PEAK)</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control py-30" id="token_swap" disabled>
+                  </div>
+                </div>
+                <div class="row justify-content-center col-lg-12 col-md-12 mx_auto mt-30">
+                  <!-- ---------- button ---------- -->
+                  <div class="m-10">
+                    <button type="button" class="btn btn-brand btn_custom_width" id="approveTokens">
+                    <span class="icon"><span data-feather="check" class="rui-icon rui-icon-stroke-1_5"></span>
+                    </span>
+                    <span class="text center_text">STEP 1: APPROVE</span>
+                    </button>
+                    <div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open">
+                      <a class="dropdown-item mnr-8 tly-10" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+                      <span stroke-width="1.5" data-feather="info"></span>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px;">
+                        <li>
+                          <small class="text-secondary">You are required to approve the token swap contract to spend your old PEAK.</small>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- ---------- button ---------- -->
+                  <div class="m-10">
+                    <button type="button" class="btn btn-brand btn_custom_width" id="swapBtn">
+                    <span class="icon"><span data-feather="repeat" class="rui-icon rui-icon-stroke-1_5"></span>
+                    </span>
+                    <span class="text center_text">STEP 2: SWAP</span>
+                    </button>
+                    <div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open">
+                      <a class="dropdown-item mnr-8 tly-10" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+                      <span stroke-width="1.5" data-feather="info"></span>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px;">
+                        <li>
+                          <small class="text-secondary">Please ensure that your 'APPROVE' transaction has been confirmed. You are required to approve the token swap contract to spend your old PEAK before swapping.</small>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center col-lg-12 col-md-12 mx_auto mt-10">
+                  <p class="text center_text m-0" id="status"><b>Enter a value to continue</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/vendor/feather-icons/dist/feather.min.js"></script>
+    <script src="./assets/js/rootui.js"></script>
+    <script src="./assets/js/rootui-init.js"></script>
+    <script src="./assets/js/web3.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      })
+
+      // Token
+      var tokenAmt  = document.querySelector("#token_amount");
+      var tokenSwap = document.querySelector("#token_swap");
+      var tokenAlert = document.querySelector(".token_alert_p");
+      var tokenAlertAmt = document.querySelectorAll(".token_alert_amt");
+      var swapToken = () => {
+      	tokenSwap.value = tokenAmt.value;
+      	(tokenAmt.value.length > 0) ? tokenAlert.style.display = "inline" : tokenAlert.style.display = "none";
+      	tokenAlertAmt.forEach(amt => {
+      		amt.textContent = tokenAmt.value;
+      	})
+      }
+
+      tokenAmt.addEventListener("keyup", swapToken);
+    </script>
+  </body>
+</html>
