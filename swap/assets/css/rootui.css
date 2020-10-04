@@ -3861,6 +3861,12 @@ h6,
     }
 }
 
+@media (max-width: 1198px) {
+    .rui-navbar.rui-navbar-top .rui-navbar-brand {
+        visibility: hidden !important;
+    }
+}
+
 .yay-hide .rui-navbar-top .rui-yaybar-toggle > span::before,
 .yay-hide .rui-navbar-top .rui-yaybar-toggle > span::after {
     -webkit-transform: translateX(0);

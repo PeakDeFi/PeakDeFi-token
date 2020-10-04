@@ -7,6 +7,11 @@ body {
 
 .rui-navbar {
     background-color: transparent;
+    box-shadow: none;
+}
+
+.rui-navbar-logo img {
+    object-fit: contain;
 }
 
 .rui-widget {
@@ -31,10 +36,6 @@ body {
     color: white;
     border: none;
     z-index: 1000;
-}
-
-.rui-navbar-logo img {
-    object-fit: contain;
 }
 
 input.form-control {
