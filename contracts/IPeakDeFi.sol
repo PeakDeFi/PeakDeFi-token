@@ -3,7 +3,7 @@
 pragma solidity ^0.6.0;
 
 /**
- * @dev Interface of the PeakDeFi token (IERC20 + additional methods)
+ * @dev Interface of the PEAKDEFI token (IERC20 + additional methods)
  */
 interface IPeakDeFi {
     /**

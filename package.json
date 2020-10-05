@@ -1,7 +1,7 @@
 {
   "name": "peak-defi-token",
   "version": "1.0.0",
-  "description": "PeakDeFi token smart contracts",
+  "description": "PEAKDEFI token smart contracts",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PeakDeFi/PeakDeFi-token.git"
+    "url": "git+https://github.com/PEAKDEFI/PEAKDEFI-token.git"
   },
   "keywords": [
     "peak",
@@ -36,9 +36,9 @@
   "author": "Ararat Tonoyan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PeakDeFi/PeakDeFi-token/issues"
+    "url": "https://github.com/PEAKDEFI/PEAKDEFI-token/issues"
   },
-  "homepage": "https://github.com/PeakDeFi/PeakDeFi-token#readme",
+  "homepage": "https://github.com/PEAKDEFI/PEAKDEFI-token#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^3.1.0",
     "@openzeppelin/test-environment": "^0.1.4",

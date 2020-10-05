@@ -1187,7 +1187,7 @@ contract PeakDeFiV1 is ERC20, Initializable {
         address admin,
         address minter
     ) public initializer {
-        _initialize("PeakDeFi", "PEAK", 8);
+        _initialize("PEAKDEFI", "PEAK", 8);
 
         _setupRole(DEFAULT_ADMIN_ROLE, admin);
         _setupRole(MINTER_ROLE, minter);

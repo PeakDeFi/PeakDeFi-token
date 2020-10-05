@@ -38,7 +38,7 @@ contract('PeakDefi Token', function (accounts) {
       const symbol = await this.tokenInstance.symbol()
       const decimals = await this.tokenInstance.decimals()
 
-      assert.deepEqual(name, 'PeakDeFi')
+      assert.deepEqual(name, 'PEAKDEFI')
       assert.deepEqual(symbol, 'PEAK')
       assert.deepEqual(decimals.toString(), '8')
     })
@@ -78,7 +78,7 @@ contract('PeakDefi Token', function (accounts) {
       const symbol = await this.tokenInstance.symbol()
       const decimals = await this.tokenInstance.decimals()
 
-      assert.deepEqual(name, 'PeakDeFi')
+      assert.deepEqual(name, 'PEAKDEFI')
       assert.deepEqual(symbol, 'PEAK')
       assert.deepEqual(decimals.toString(), '8')
     })
