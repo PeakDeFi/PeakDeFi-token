@@ -4,7 +4,7 @@ import "@openzeppelin/contracts/proxy/Initializable.sol";
 import "./ERC20.sol";
 
 
-contract PeakDeFiV1 is ERC20, Initializable {
+contract PEAKDEFI_V1 is ERC20, Initializable {
     function initialize(
         address admin,
         address minter

@@ -1182,7 +1182,7 @@ contract ERC20 is AccessControl, IERC20 {
 }
 
 
-contract PeakDeFiV1 is ERC20, Initializable {
+contract PEAKDEFI_V1 is ERC20, Initializable {
     function initialize(
         address admin,
         address minter
