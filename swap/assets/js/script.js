@@ -104,7 +104,7 @@ $(function() {
     $('#token_amount_all').click(async function(e) {
         e.preventDefault();
         var totalBalance = await OLD_PEAK_CONTRACT.methods.balanceOf(accounts[0]).call();
-        totalBalance = totalBalance / 10 ** (6);
+        totalBalance = totalBalance / 10 ** (8);
         $('#token_amount').val(totalBalance);
         $('#token_swap').val(totalBalance);
     });
@@ -115,7 +115,7 @@ $(function() {
         tokens = (convert(tokens * 10 ** (8))).toString();
         OLD_PEAK_CONTRACT.methods.approve(swapContract, tokens).send({
             from: accounts[0],
-            gasLimit: 210000
+            gasLimit: 120000
         }).on('transactionHash', function(hash) {
             $('#status').html('Please wait! \n Approve <a href="https://etherscan.io/tx/' + hash + '" target="_blank">Transaction is pending...');
         }).on('confirmation', function(confirmationNumber, receipt) {
@@ -129,11 +129,11 @@ $(function() {
         tokens = (convert(tokens * 10 ** (8))).toString()
         SWAP_CONTRACT.methods.swap(tokens).send({
             from: accounts[0],
-            gasLimit: 210000
+            gasLimit: 120000
         }).on('transactionHash', function(hash) {
             $('#status').html('Swap <a href="https://etherscan.io/tx/' + hash + '" target="_blank">Transaction is pending...');
         }).on('confirmation', function(confirmationNumber, receipt) {
-            $('#status').html('Tokens have been swapped, please check your wallet!');
+            $('#status').html('Ready! Your tokens have been swapped, please check your wallet!');
         });
     });
 
