@@ -1,7 +1,7 @@
 // address needs updating to mainnet
-var swapContract = "0x92A6C7F8e06c53fbf6FD457b140c28a9f491B6c1";
+var swapContract = "0x86ad8a61c8b260c8c28539927be6ad3fb57b6382";
 
-var oldPeakToken = "0x8974a63e858912209B5B602A660f26718B575956";
+var oldPeakToken = "0x633eE3fbE5ffc05bD44Ecd8240732fF9ef9Dee1d";
 
 var contract_abi = [{"inputs":[{"internalType":"address","name":"_wallet","type":"address"},{"internalType":"address","name":"_fromERC20","type":"address"},{"internalType":"address","name":"_toERC20","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":false,"internalType":"address","name":"fromERC20","type":"address"},{"indexed":false,"internalType":"address","name":"toERC20","type":"address"},{"indexed":false,"internalType":"uint256","name":"balance","type":"uint256"}],"name":"TokenSwap","type":"event"},{"inputs":[],"name":"fromERC20","outputs":[{"internalType":"contract IPeakDeFi","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"swapAmount","type":"uint256"}],"name":"swap","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"toERC20","outputs":[{"internalType":"contract IPeakDeFi","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"wallet","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"}];
 
