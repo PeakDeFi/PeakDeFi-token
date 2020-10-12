@@ -115,7 +115,7 @@ $(function() {
         tokens = (convert(tokens * 10 ** (8))).toString();
         OLD_PEAK_CONTRACT.methods.approve(swapContract, tokens).send({
             from: accounts[0],
-            gasLimit: 120000
+            gasLimit: 160000
         }).on('transactionHash', function(hash) {
             $('#status').html('Please wait! \n Approve <a href="https://etherscan.io/tx/' + hash + '" target="_blank">Transaction is pending...');
         }).on('confirmation', function(confirmationNumber, receipt) {
@@ -129,7 +129,7 @@ $(function() {
         tokens = (convert(tokens * 10 ** (8))).toString()
         SWAP_CONTRACT.methods.swap(tokens).send({
             from: accounts[0],
-            gasLimit: 120000
+            gasLimit: 220000
         }).on('transactionHash', function(hash) {
             $('#status').html('Swap <a href="https://etherscan.io/tx/' + hash + '" target="_blank">Transaction is pending...');
         }).on('confirmation', function(confirmationNumber, receipt) {
