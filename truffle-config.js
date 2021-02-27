@@ -94,6 +94,16 @@ module.exports = {
       timeoutBlocks: 50,        // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true          // Skip dry run before migrations? (default: false for public nets )
     },
+
+    bsc: {
+      provider: () => new HDWalletProvider(PRIVATE_KEY, `https://bsc-dataseed.binance.org/`),
+      network_id: 56,           // Kovan's id
+      gas: 9500000,             // Ropsten has a lower block limit than mainnet
+      gasPrice: '10000000000',  // 10 gwei
+      confirmations: 0,         // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 50,        // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true          // Skip dry run before migrations? (default: false for public nets )
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
