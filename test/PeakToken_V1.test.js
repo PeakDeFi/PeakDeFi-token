@@ -3,7 +3,7 @@ const { ether } = require('@openzeppelin/test-helpers')
 
 const TokenProxy = artifacts.require('TokenProxy')
 const PEAKDEFI_V1 = artifacts.require('PEAKDEFI_V1')
-const PEAKDEFI_V2 = artifacts.require('PEAKDEFI_V2')
+// const PEAKDEFI_V2 = artifacts.require('PEAKDEFI_V2')
 
 contract('PeakDefi Token', function (accounts) {
   const [ admin, minter, proxyAdmin, alice, bob ] = accounts
@@ -66,40 +66,40 @@ contract('PeakDefi Token', function (accounts) {
     })
   })
 
-  describe('Deploy and upgrade token contract to V2', () => {
-    it('Deploy and upgrade V2', async () => {
-      this.logicInstance = await PEAKDEFI_V2.new({ from: admin })
-      await this.proxyInstance.upgradeTo(this.logicInstance.address, { from: proxyAdmin })
-      this.tokenInstance = await PEAKDEFI_V2.at(this.proxyInstance.address)
-    })
+  // describe('Deploy and upgrade token contract to V2', () => {
+  //   it('Deploy and upgrade V2', async () => {
+  //     this.logicInstance = await PEAKDEFI_V2.new({ from: admin })
+  //     await this.proxyInstance.upgradeTo(this.logicInstance.address, { from: proxyAdmin })
+  //     this.tokenInstance = await PEAKDEFI_V2.at(this.proxyInstance.address)
+  //   })
 
-    it('Check the contract initial values after upgrade', async () => {
-      const name = await this.tokenInstance.name()
-      const symbol = await this.tokenInstance.symbol()
-      const decimals = await this.tokenInstance.decimals()
+  //   it('Check the contract initial values after upgrade', async () => {
+  //     const name = await this.tokenInstance.name()
+  //     const symbol = await this.tokenInstance.symbol()
+  //     const decimals = await this.tokenInstance.decimals()
 
-      assert.deepEqual(name, 'PEAKDEFI')
-      assert.deepEqual(symbol, 'PEAK')
-      assert.deepEqual(decimals.toString(), '8')
-    })
+  //     assert.deepEqual(name, 'PEAKDEFI')
+  //     assert.deepEqual(symbol, 'PEAK')
+  //     assert.deepEqual(decimals.toString(), '8')
+  //   })
 
-    it('Check the balance and allowances after upgrade', async () => {
-      const allowance = await this.tokenInstance.allowance(alice, bob)
-      assert.deepEqual(allowance.toString(), ether('50').toString())
-    })
-  })
+  //   it('Check the balance and allowances after upgrade', async () => {
+  //     const allowance = await this.tokenInstance.allowance(alice, bob)
+  //     assert.deepEqual(allowance.toString(), ether('50').toString())
+  //   })
+  // })
 
-  describe('Use the new method of V2 token', () => {
-    it('Called the new method', async () => {
-      await this.tokenInstance.changeTokenData('NEW Peak DEFI', 'NPD', '10') // DON'T RECOMMENDED to change decimal of contract on production!
+  // describe('Use the new method of V2 token', () => {
+  //   it('Called the new method', async () => {
+  //     await this.tokenInstance.changeTokenData('NEW Peak DEFI', 'NPD', '10') // DON'T RECOMMENDED to change decimal of contract on production!
 
-      const name = await this.tokenInstance.name()
-      const symbol = await this.tokenInstance.symbol()
-      const decimals = await this.tokenInstance.decimals()
+  //     const name = await this.tokenInstance.name()
+  //     const symbol = await this.tokenInstance.symbol()
+  //     const decimals = await this.tokenInstance.decimals()
 
-      assert.deepEqual(name, 'NEW Peak DEFI')
-      assert.deepEqual(symbol, 'NPD')
-      assert.deepEqual(decimals.toString(), '10')
-    })
-  })
+  //     assert.deepEqual(name, 'NEW Peak DEFI')
+  //     assert.deepEqual(symbol, 'NPD')
+  //     assert.deepEqual(decimals.toString(), '10')
+  //   })
+  // })
 })
